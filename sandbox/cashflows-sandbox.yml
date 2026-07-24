@@ -1,0 +1,26 @@
+generated: '2026-07-24'
+method: searched
+source: https://developer.cashflows.com/api_reference/cashflows_gateway.html
+summary: >-
+  Cashflows provides a dedicated integration/sandbox environment on separate
+  hostnames from production, with separate credentials. Test card numbers and
+  test credentials are issued per merchant by the Implementations team and are
+  not published openly, so none are reproduced here.
+environments:
+  - name: integration
+    gateway_base_url: https://gateway-int.cashflows.com
+    remote_auth_base_url: https://secure-int.cashflows.com/gateway/remote_auth
+    note: Requires separate integration ConfigurationId / API key.
+  - name: production
+    gateway_base_url: https://gateway.cashflows.com
+    remote_auth_base_url: https://secure.cashflows.com/gateway/remote_auth
+credentials:
+  detail: >-
+    Integration credentials (ConfigurationId + API key, or auth_id/auth_pass)
+    are distinct from production and provisioned by contacting
+    implementations@cashflows.com.
+test_values:
+  published: false
+  note: >-
+    Test card numbers / magic values are provided privately per merchant; the
+    public docs do not publish a fixed sandbox card set.

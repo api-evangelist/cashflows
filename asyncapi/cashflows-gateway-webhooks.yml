@@ -1,0 +1,34 @@
+generated: '2026-07-24'
+method: searched
+source: https://developer.cashflows.com/gateway/cashflows_gateway.html
+spec_type: Webhooks
+api: cashflows-gateway-api
+summary: >-
+  The Cashflows Gateway delivers asynchronous payment-status changes to a
+  merchant-configured HTTPS endpoint. No AsyncAPI document is published; this is
+  the webhook catalogue harvested from the developer guide.
+delivery:
+  transport: https-post
+  source_ips:
+    - 54.74.58.255
+    - 52.215.48.101
+  configuration: >-
+    Default webhook URL is set in the Cashflows Portal; can be overridden per
+    payment job via the webhookUrl parameter. For recurring payments the URL is
+    set on the parent payment job only.
+  retry_policy: >-
+    Escalating retries — every minute, then daily, then weekly — for up to one
+    month until acknowledged.
+  acknowledgement: >-
+    Respond HTTP 200 echoing {paymentJobReference, paymentReference} to confirm
+    receipt and stop retries.
+payload_fields:
+  - paymentJobReference
+  - paymentReference
+events:
+  - name: payment.paid
+    description: Payment moved from Pending to Paid (successful completion).
+  - name: payment.failed
+    description: Payment failed / declined.
+  - name: payment.cancelled
+    description: Payment or payment job was cancelled.

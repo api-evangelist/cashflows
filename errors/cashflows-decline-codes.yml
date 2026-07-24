@@ -1,0 +1,111 @@
+generated: '2026-07-24'
+method: searched
+source: https://developer.cashflows.com/api_reference/api_reference_overview.html
+api: cashflows-remote-authentication-api
+envelope:
+  detail: >-
+    The Remote Authentication API returns a pipe-delimited response string whose
+    first field is a response code: one letter followed by a 3-digit number. The
+    leading letter is the class; the trailing two digits are the specific code.
+  example: "A|01S0135FD47|200|AUTHOK|Authorised|MCC6830070529"
+classes:
+  - letter: A
+    meaning: Authorised
+  - letter: V
+    meaning: Validation error (e.g. invalid card number)
+  - letter: D
+    meaning: Declined
+  - letter: R
+    meaning: Referral (treated as declined)
+  - letter: B
+    meaning: Blocked
+  - letter: C
+    meaning: Cancelled
+  - letter: S
+    meaning: System error
+decline_codes:
+  - code: Dx01
+    class: declined
+    meaning: Declined by issuer.
+  - code: Dx02
+    class: declined
+    meaning: Declined due to funds (insufficient / limit exceeded).
+  - code: Dx03
+    class: declined
+    meaning: Declined.
+  - code: Dx05
+    class: declined
+    meaning: Declined.
+  - code: Dx07
+    class: declined
+    meaning: Declined.
+  - code: Dx08
+    class: declined
+    meaning: 'Refund: insufficient merchant funds in account.'
+  - code: Dx10
+    class: declined
+    meaning: Card authorisation attempt limit reached.
+  - code: Dx11
+    class: declined
+    meaning: Declined.
+  - code: Dx40
+    class: declined
+    meaning: Declined.
+  - code: Dx41
+    class: declined
+    meaning: Declined.
+  - code: Dx43
+    class: declined
+    meaning: Declined.
+  - code: Dx49
+    class: declined
+    meaning: Additional authentication required.
+  - code: Dx90
+    class: declined
+    meaning: Pre-authorisation anti-fraud block.
+  - code: Dx91
+    class: declined
+    meaning: Post-authorisation anti-fraud block.
+  - code: Rx01
+    class: referral
+    meaning: Not authorised (referral, treated as declined).
+  - code: Cx01
+    class: cancelled
+    meaning: Cancelled.
+  - code: Cx02
+    class: cancelled
+    meaning: Cancelled.
+validation_codes:
+  - {code: Vx01, meaning: Invalid merchant details}
+  - {code: Vx02, meaning: Invalid expiry date}
+  - {code: Vx03, meaning: Invalid start date}
+  - {code: Vx04, meaning: Invalid issue number}
+  - {code: Vx05, meaning: Invalid CVV}
+  - {code: Vx06, meaning: Invalid card number}
+  - {code: Vx08, meaning: Insufficient address details}
+  - {code: Vx09, meaning: Invalid country code}
+  - {code: Vx10, meaning: Invalid cart ID}
+  - {code: Vx11, meaning: Invalid email address}
+  - {code: Vx12, meaning: Invalid phone number}
+  - {code: Vx13, meaning: Invalid amount}
+  - {code: Vx14, meaning: Invalid currency code}
+  - {code: Vx15, meaning: Invalid customer IP}
+  - {code: Vx17, meaning: Invalid merchant IP}
+  - {code: Vx23, meaning: Cannot refund this type of transaction}
+  - {code: Vx26, meaning: Invalid request}
+  - {code: Vx35, meaning: Original transaction was not authorised}
+  - {code: Vx36, meaning: Invalid PIN}
+  - {code: Vx53, meaning: 3DS data invalid}
+  - {code: Vx54, meaning: Concurrent authorisations}
+  - {code: Vx55, meaning: Invalid funds recipient date (MCC 6012, 6051 or 7299 merchants)}
+  - {code: Vx61, meaning: Recurrence flag usage invalid}
+system_codes:
+  - {code: Sx00, meaning: Invalid transaction request}
+  - {code: Sx01, meaning: System error (connection failure)}
+  - {code: Sx02, meaning: Invalid response}
+  - {code: Sx03, meaning: System error}
+  - {code: Sx04, meaning: Server error}
+  - {code: Sx05, meaning: Server error}
+  - {code: Sx06, meaning: System error}
+  - {code: Sx07, meaning: System error}
+  - {code: Sx99, meaning: Unknown error}

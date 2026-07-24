@@ -1,0 +1,41 @@
+generated: '2026-07-24'
+method: derived
+source: https://developer.cashflows.com/api_reference/cashflows_gateway.html
+note: >-
+  Entity/relationship graph derived from the Cashflows Gateway API reference
+  (no OpenAPI $ref graph exists; relationships inferred from the documented
+  resource paths and payload fields).
+entities:
+  - name: PaymentJob
+    id_field: paymentJobReference
+    description: >-
+      A payment intent to collect (or credit) a given amount in a currency,
+      carrying order, addresses, line items, payment methods, options and
+      recurrence criteria. Root resource created via POST /api/gateway/payment-jobs.
+  - name: Payment
+    id_field: paymentReference
+    description: >-
+      An individual payment attempt/transaction within a payment job; can be
+      captured, refunded or cancelled.
+  - name: Capture
+    description: A capture applied to a payment (PATCH .../captures).
+  - name: Refund
+    description: A refund applied to a payment (PATCH .../refunds).
+  - name: Order
+    id_field: OrderReference
+    description: Order detail attached to a payment job (billing/shipping address, order lines).
+  - name: OrderLine
+    description: A single line item on an order (sku, quantity, unit prices, VAT).
+  - name: CardToken
+    description: A stored card token generated via the GenerateToken option / card-tokenisation.
+  - name: Customer
+    description: Customer information optionally stored with a payment job (StoreCustomerInformation).
+relationships:
+  - {from: PaymentJob, type: has_many, to: Payment, via: payments}
+  - {from: PaymentJob, type: has_one, to: Order, via: order}
+  - {from: PaymentJob, type: has_one, to: Customer, via: customer}
+  - {from: Order, type: has_many, to: OrderLine, via: orderLines}
+  - {from: Payment, type: has_many, to: Capture, via: captures}
+  - {from: Payment, type: has_many, to: Refund, via: refunds}
+  - {from: PaymentJob, type: has_one, to: CardToken, via: token}
+  - {from: PaymentJob, type: belongs_to, to: PaymentJob, via: recurrenceCriteria, note: recurring child jobs reference a parent payment job}

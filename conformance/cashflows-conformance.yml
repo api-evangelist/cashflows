@@ -1,0 +1,35 @@
+generated: '2026-07-24'
+method: searched
+source: https://developer.cashflows.com/api_reference/api_reference_overview.html
+standards:
+  - id: pci-dss
+    conforms: true
+    evidence: >-
+      Docs cite PCI DSS Requirement 3 and prohibit storage of Sensitive
+      Authentication Data; Cashflows is a card acquirer subject to PCI DSS.
+  - id: emv-3ds
+    conforms: true
+    evidence: >-
+      Payments API implements 3-D Secure v2 (PreAuthenticate / Authenticate /
+      VerifyThreeDSecure) with Cavv/Eci/Xid handling.
+  - id: psd2-sca
+    conforms: true
+    evidence: 3-D Secure v2 strong customer authentication flows for EEA/UK card payments.
+  - id: pci-pts
+    conforms: true
+    evidence: In-Person Payments served from PCI-PTS secure Kinetic terminals.
+  - id: visa-mastercard-principal-member
+    conforms: true
+    evidence: Cashflows is a principal member of Visa and Mastercard (acquiring licence).
+  - id: oauth2
+    conforms: false
+    evidence: Authentication is header signing (SHA2-512 hash) and credential pairs, not OAuth2.
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: Errors use symbolic codes / pipe-delimited strings, not application/problem+json.
+  - id: iso-4217-currency
+    conforms: true
+    evidence: Amounts carry ISO 4217 currency codes.
+  - id: iso-3166-country
+    conforms: true
+    evidence: Addresses use ISO 3166-1 alpha-2 country codes (countryIso3166Alpha2).

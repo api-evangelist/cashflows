@@ -1,0 +1,60 @@
+generated: '2026-07-24'
+method: searched
+source: https://developer.cashflows.com/api_reference/api_reference_overview.html
+format: symbolic-code
+note: >-
+  Cashflows Gateway returns standard HTTP status codes plus symbolic
+  error/warning objects (not RFC 9457 problem+json). Codes captured verbatim
+  from the developer reference. Acquirer decline codes for the Remote
+  Authentication API are catalogued separately in cashflows-decline-codes.yml.
+http_status:
+  - status: 200
+    meaning: Success (retrieval, cancellation, capture, refund).
+  - status: 201
+    meaning: Payment job created successfully.
+  - status: 400
+    meaning: Request contains errors (malformed or invalid data).
+  - status: 401
+    meaning: Authentication failed (invalid API key/token or bad signature hash).
+  - status: 403
+    meaning: Insufficient permissions.
+  - status: 404
+    meaning: Configuration or resource not found.
+  - status: 500
+    meaning: Internal server error (e.g. payment processor error).
+  - status: 503
+    meaning: Service unavailable.
+warnings:
+  - code: UnexpectedPaymentStatus
+    message: The payment is in an unexpected status for the requested action.
+  - code: MaximunNumberOfTokensReached
+    message: The maximum number of stored tokens for a customer has been reached.
+error_responses:
+  - code: CaptureAmountExceedsOriginalAuthorisation
+    message: The total capture amount exceeds the original authorised amount.
+  - code: GenericRejectionOfRefund
+    message: Refund has been refused.
+  - code: InvalidCaptureStatus
+    message: Capture has an invalid status.
+  - code: InvalidPaymentForRefund
+    message: Unable to refund this payment.
+  - code: InvalidPaymentForCredit
+    message: Payment is not eligible for a credit.
+  - code: InvalidPaymentStatus
+    message: Payment has an invalid status.
+  - code: InvalidRefundStatus
+    message: Refund has an invalid status.
+  - code: NonThreeDSecureNotAllowed
+    message: A non-3-D Secure transaction is not permitted for this configuration.
+  - code: PaymentAlreadyFullyRefunded
+    message: Payment has already been fully refunded.
+  - code: RefundAmountExceedsOriginalAmount
+    message: The total refund amount exceeds the original paid amount.
+  - code: ThreeDSecureFailed
+    message: 3-D Secure authentication failed.
+  - code: ThreeDSecureUnavailable
+    message: 3-D Secure authentication is unavailable.
+  - code: ThreeDSecureMethodPostCallbackConflict
+    message: Conflict in the 3-D Secure method post callback.
+  - code: InvalidCustomerReference
+    message: Invalid customer reference provided.

@@ -1,0 +1,28 @@
+# Cashflows
+
+> Cashflows is a United Kingdom payment gateway and card acquirer (a principal member of Visa and Mastercard) that helps businesses accept, process, and manage card payments across online, in-app, and in-person channels. Authentication is header-based (ConfigurationId + SHA2-512 request hash for the Gateway; auth_id/auth_pass for Remote Authentication) rather than OAuth. No public OpenAPI/Swagger or Postman collection is published; the API reference is hand-authored HTML.
+
+## APIs
+
+- [Cashflows Gateway API](https://developer.cashflows.com/api_reference/cashflows_gateway.html): REST API for payment jobs, payments, captures, refunds, tokenisation and recurring payments; base https://gateway.cashflows.com/api/gateway (integration https://gateway-int.cashflows.com).
+- [Cashflows Payments API](https://developer.cashflows.com/api_reference/payments.html): Cardholder-not-present card payments with 3-D Secure v2 (authorise, capture, void, refund, credit, IIN lookup).
+- [Cashflows Remote Authentication API](https://developer.cashflows.com/api_reference/remote_auth_api.html): Direct connection to the acquiring network; base https://secure.cashflows.com/gateway/remote_auth.
+- [Cashflows In-Person Payments API](https://developer.cashflows.com/api_reference/ipp.html): Local REST API on PCI-PTS Kinetic terminals under /api/v2.
+
+## Docs
+
+- [Developer Portal](https://developer.cashflows.com/)
+- [Getting Started](https://developer.cashflows.com/getting_started/getting_started.html)
+- [API Reference Overview](https://developer.cashflows.com/api_reference/api_reference_overview.html)
+- [Gateway Guide](https://developer.cashflows.com/gateway/cashflows_gateway.html)
+- [Status Page](https://status.cashflows.com/)
+- [Pricing](https://www.cashflows.com/pricing)
+
+## Artifacts
+
+- [Authentication](https://raw.githubusercontent.com/api-evangelist/cashflows/refs/heads/main/authentication/cashflows-authentication.yml)
+- [Conventions](https://raw.githubusercontent.com/api-evangelist/cashflows/refs/heads/main/conventions/cashflows-conventions.yml)
+- [Error catalog](https://raw.githubusercontent.com/api-evangelist/cashflows/refs/heads/main/errors/cashflows-problem-types.yml)
+- [Decline codes](https://raw.githubusercontent.com/api-evangelist/cashflows/refs/heads/main/errors/cashflows-decline-codes.yml)
+- [Webhooks](https://raw.githubusercontent.com/api-evangelist/cashflows/refs/heads/main/asyncapi/cashflows-gateway-webhooks.yml)
+- [Packages / SDKs](https://raw.githubusercontent.com/api-evangelist/cashflows/refs/heads/main/packages/cashflows-packages.yml)

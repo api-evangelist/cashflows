@@ -1,0 +1,27 @@
+generated: '2026-07-24'
+method: searched
+source: live probes of /.well-known/ on Cashflows hosts
+note: >-
+  No /.well-known/ discovery documents are published on any Cashflows host.
+  Absence recorded as valid data.
+hosts:
+  - host: https://gateway.cashflows.com
+    documents:
+      - {path: /.well-known/security.txt, status: 404}
+      - {path: /.well-known/openid-configuration, status: 404}
+      - {path: /.well-known/oauth-authorization-server, status: 404}
+      - {path: /.well-known/api-catalog, status: 404}
+      - {path: /.well-known/ai-plugin.json, status: 404}
+  - host: https://secure.cashflows.com
+    documents:
+      - {path: /.well-known/security.txt, status: 404}
+      - {path: /.well-known/openid-configuration, status: 404}
+      - {path: /.well-known/oauth-authorization-server, status: 404}
+  - host: https://developer.cashflows.com
+    documents:
+      - {path: /.well-known/security.txt, status: 403}
+      - {path: /.well-known/openid-configuration, status: 403}
+  - host: https://www.cashflows.com
+    documents:
+      - {path: /.well-known/security.txt, status: 404}
+      - {path: /.well-known/openid-configuration, status: 404}

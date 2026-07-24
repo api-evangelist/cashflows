@@ -1,0 +1,21 @@
+generated: '2026-07-24'
+method: searched
+source: https://developer.cashflows.com/getting_started/getting_started.html
+summary: >-
+  Cashflows offers hosted and embedded checkout surfaces that render the payment
+  experience for merchants who do not want to handle card data directly. These
+  are client-facing payment UI surfaces, distinct from the server-side SDKs in
+  packages/.
+components:
+  - family: Hosted Checkout Pages
+    kind: hosted-redirect
+    description: >-
+      Cashflows-hosted payment pages the merchant redirects the customer to;
+      medium customization, no card data touches the merchant server.
+    docs: https://developer.cashflows.com/getting_started/getting_started.html
+  - family: Embedded Checkout
+    kind: embedded
+    description: >-
+      Embeddable checkout surface hosted within the merchant page for an inline
+      payment experience; medium customization.
+    docs: https://developer.cashflows.com/getting_started/getting_started.html

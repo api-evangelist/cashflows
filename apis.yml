@@ -30,7 +30,7 @@ tags:
 - Recurring Payments
 - Webhooks
 created: '2026-07-24'
-modified: '2026-07-24'
+modified: '2026-07-24T12:00:00Z'
 specificationVersion: '0.19'
 apis:
 - aid: cashflows:cashflows-gateway-api
@@ -97,6 +97,8 @@ apis:
   - type: APIReference
     url: https://developer.cashflows.com/api_reference/ipp.html
 common:
+- type: DomainSecurity
+  url: security/cashflows-domain-security.yml
 - type: Website
   url: https://www.cashflows.com/
 - type: DeveloperPortal
@@ -119,6 +121,40 @@ common:
   url: https://www.cashflows.com/legal/terms-and-conditions
 - type: PrivacyPolicy
   url: https://www.cashflows.com/legal/privacy-policy
+- type: Login
+  url: https://portal.cashflows.com/
+- type: GitHubOrganization
+  url: https://github.com/cashflows
+- type: Authentication
+  url: authentication/cashflows-authentication.yml
+- type: Conventions
+  url: conventions/cashflows-conventions.yml
+- type: ErrorCatalog
+  url: errors/cashflows-problem-types.yml
+- type: DeclineCodes
+  url: errors/cashflows-decline-codes.yml
+- type: Webhooks
+  url: asyncapi/cashflows-gateway-webhooks.yml
+- type: Packages
+  url: packages/cashflows-packages.yml
+- type: SDKs
+  url: packages/cashflows-packages.yml
+- type: Lifecycle
+  url: lifecycle/cashflows-lifecycle.yml
+- type: Sandbox
+  url: sandbox/cashflows-sandbox.yml
+- type: Components
+  url: components/cashflows-components.yml
+- type: Conformance
+  url: conformance/cashflows-conformance.yml
+- type: DataModel
+  url: data-model/cashflows-data-model.yml
+- type: WellKnown
+  url: well-known/cashflows-well-known.yml
+- type: MCPServer
+  url: mcp/cashflows-mcp.yml
+- type: LLMsTxt
+  url: llms/cashflows-llms.txt
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

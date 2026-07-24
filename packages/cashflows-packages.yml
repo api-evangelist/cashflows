@@ -1,0 +1,24 @@
+generated: '2026-07-24'
+method: searched
+source: https://github.com/cashflows/cashflows-clientlib-js
+packages:
+  - language: javascript
+    registry: npm
+    name: cashflows-clientlib-js
+    url: https://www.npmjs.com/package/cashflows-clientlib-js
+    repository: https://github.com/cashflows/cashflows-clientlib-js
+    install: npm install cashflows-clientlib-js
+    official: true
+    note: >-
+      Published by Cashflows (author tech@cashflows.com) from the official
+      github.com/cashflows organisation.
+  - language: php
+    registry: packagist
+    name: cashflows/payment-gateway-api-php
+    url: https://packagist.org/packages/cashflows/payment-gateway-api-php
+    repository: https://github.com/PayCheckout-BV/PaymentGatewayAPI_PHP
+    install: composer require cashflows/payment-gateway-api-php
+    official: false
+    note: >-
+      Community library (source repo owned by PayCheckout-BV) implementing the
+      Cashflows gateway API; not published from the Cashflows org.

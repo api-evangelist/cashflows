@@ -1,0 +1,52 @@
+generated: '2026-07-24'
+method: searched
+source: https://developer.cashflows.com/api_reference/api_reference_overview.html
+summary: >-
+  Cross-cutting request/response semantics for the Cashflows Gateway and
+  Payments REST APIs, harvested from the hand-authored developer reference
+  (no OpenAPI is published).
+authentication:
+  style: header-signed
+  detail: >-
+    ConfigurationId header + SHA2-512 Hash (body + API key, hex) on the Gateway;
+    auth_id/auth_pass on Remote Authentication. See authentication/.
+  ref: authentication/cashflows-authentication.yml
+idempotency:
+  supported: false
+  note: >-
+    No idempotency-key header or replay-safe retry contract is documented.
+    Payment jobs are addressed by a client-supplied paymentJobReference, and
+    webhook delivery is at-least-once (acknowledge with HTTP 200 to stop
+    retries), but there is no documented request-level idempotency key.
+pagination:
+  supported: false
+  note: No collection pagination is documented; resources are fetched by reference.
+versioning:
+  scheme: uri-path
+  detail: >-
+    Gateway paths are prefixed /api/gateway; In-Person Payments is served under
+    /api/v2. No dated or header-based version negotiation is documented.
+request_tracing:
+  detail: >-
+    Resources are correlated by client references (paymentJobReference,
+    paymentReference, OrderReference) rather than a server request-id header.
+error_envelope:
+  gateway:
+    detail: >-
+      JSON error/warning objects with a symbolic code (e.g.
+      NonThreeDSecureNotAllowed, PaymentAlreadyFullyRefunded) plus a message,
+      alongside standard HTTP status codes. See errors/.
+    ref: errors/cashflows-problem-types.yml
+  remote_auth:
+    detail: >-
+      Pipe-delimited response string; first field is a letter+3-digit acquirer
+      response code (A/V/D/R/B/C/S). See errors/cashflows-decline-codes.yml.
+    ref: errors/cashflows-decline-codes.yml
+rate_limit_signaling:
+  detail: Not documented.
+webhooks:
+  detail: >-
+    Asynchronous payment-status notifications delivered by webhook; retried for
+    up to a month; acknowledge with HTTP 200 echoing the references. See
+    asyncapi/.
+  ref: asyncapi/cashflows-gateway-webhooks.yml

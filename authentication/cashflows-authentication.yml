@@ -1,0 +1,49 @@
+generated: '2026-07-24'
+method: searched
+source: https://developer.cashflows.com/api_reference/api_reference_overview.html
+docs: https://developer.cashflows.com/getting_started/getting_started.html
+summary:
+  types: [apiKey, http-hash-signature, credential-pair]
+  api_key_in: [header]
+  oauth2_flows: []
+  note: >-
+    Cashflows uses header-based credentials and request signing, not OAuth.
+    Each API family authenticates differently. No OpenAPI securitySchemes are
+    published; this profile is derived from the hand-authored API reference.
+schemes:
+  - name: GatewaySignedRequest
+    api: cashflows-gateway-api
+    type: apiKey
+    in: header
+    parameters:
+      - name: ConfigurationId
+        description: Unique merchant account / configuration identifier.
+      - name: Hash
+        description: >-
+          SHA2-512 hash of the request message body concatenated with the
+          account API key, encoded as a hex string. Signs every request so the
+          gateway can verify message integrity and origin. Repeated signature
+          failures lock the account.
+    sources: [docs]
+  - name: RemoteAuthCredentials
+    api: cashflows-remote-authentication-api
+    type: credential-pair
+    in: body
+    parameters:
+      - name: auth_id
+        description: Profile / Merchant ID.
+      - name: auth_pass
+        description: Authentication password for the acquiring-network connection.
+      - name: security_hash
+        description: Additional hash required for credit (payout) transactions.
+    sources: [docs]
+  - name: PaymentsSignedRequest
+    api: cashflows-payments-api
+    type: http-hash-signature
+    in: header
+    parameters:
+      - name: MerchantId
+        description: Merchant identifier included on every request.
+      - name: Hash
+        description: SHA2-512 signature over the request body, as with the Gateway.
+    sources: [docs]
