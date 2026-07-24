@@ -1,0 +1,111 @@
+aid: cashflows
+name: Cashflows
+review:
+  question: Does Cashflows publish a downloadable OpenAPI/Swagger definition or
+    public Postman collection for its payment APIs?
+  answer: false
+  date: '2026-07-24'
+  reviewer: API Evangelist
+findings:
+  summary: |
+    Cashflows runs a genuine, self-serve developer portal at
+    https://developer.cashflows.com (live; returns 200 via browser render,
+    though it blocks direct bot/curl requests with 403). The portal documents
+    a real family of REST payment APIs — the Cashflows Gateway API, a
+    cardholder-not-present Payments API with 3-D Secure, a Remote
+    Authentication API for direct acquiring-network access, and an In-Person
+    Payments API served locally from PCI-PTS Kinetic terminals. However, the
+    API reference is hand-authored HTML (not Redoc/Swagger/Stoplight/Mintlify),
+    and NO downloadable OpenAPI or Swagger definition was found: probes of
+    /openapi.json, /openapi.yaml, /swagger.json, /api-docs, and per-product
+    spec paths all returned 403 (bot block) or 404, and no in-page "Download
+    OpenAPI" link or embedded spec URL exists on any reference page. No public
+    Postman collection or workspace and no public GitHub organization were
+    found. Zero machine-readable specs were harvested; none were fabricated.
+    The Gateway supports webhook notifications for payment status changes,
+    retried for up to a month, sent from IPs 54.74.58.255 and 52.215.48.101.
+    Authentication is header-based: the Gateway uses a ConfigurationId header
+    plus a SHA-512 hash of the request body concatenated with an API key;
+    Remote Authentication uses auth_id and auth_pass headers. There is no
+    OAuth2, no OpenID Connect discovery document, and no AsyncAPI. A dedicated
+    integration/sandbox environment (gateway-int.cashflows.com,
+    secure-int.cashflows.com) exists with a 3-D Secure simulation page. Home
+    market is the United Kingdom (London; principal member of Visa and
+    Mastercard).
+  homeMarket: United Kingdom
+  developerPortal:
+    url: https://developer.cashflows.com/
+    status: 200
+    note: Live and self-serve; blocks anonymous curl/bot requests with 403 but
+      renders normally in a browser.
+  downloadableSpecs:
+    openapi: false
+    swagger: false
+    count: 0
+    note: API reference is hand-authored HTML; no downloadable or embedded
+      machine-readable definition found.
+  postman:
+    found: false
+  graphql:
+    found: false
+  webhooks:
+    supported: true
+    note: Cashflows Gateway sends payment-status-change webhooks with
+      paymentJobReference and paymentReference; retried up to a month; source
+      IPs 54.74.58.255 and 52.215.48.101.
+  authModel:
+    gateway: ConfigurationId header + SHA-512 hash of request body plus API key
+    remoteAuthentication: auth_id (Profile/Merchant ID) + auth_pass credential
+      headers
+    oauth2: false
+    openidConnect: false
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://gateway.cashflows.com/api/gateway
+      documented: true
+      note: Cashflows Gateway API.
+    - protocol: REST
+      scheme: https
+      baseURL: https://secure.cashflows.com/gateway/remote_auth
+      documented: true
+      note: Remote Authentication API.
+    - protocol: REST
+      scheme: http
+      baseURL: http://127.0.0.1:8080/api/v2
+      documented: true
+      note: In-Person Payments API served locally from Kinetic PCI-PTS devices.
+    - protocol: Webhook
+      scheme: https
+      documented: true
+      note: Merchant-configured payment-status notification callbacks from the Gateway.
+sources:
+  - url: https://developer.cashflows.com/
+    type: DeveloperPortal
+    note: Welcome/landing; top-level sections and API reference nav.
+  - url: https://developer.cashflows.com/api_reference/api_reference_overview.html
+    type: APIReference
+    note: Overview of the Gateway, Remote Authentication, Payments, and In-Person Payments APIs.
+  - url: https://developer.cashflows.com/api_reference/cashflows_gateway.html
+    type: APIReference
+    note: Gateway endpoints (payment-jobs, captures, refunds, tokenisation); ConfigurationId+Hash auth.
+  - url: https://developer.cashflows.com/api_reference/payments.html
+    type: APIReference
+    note: Payments API endpoints (Authorisation, Capture, Refund, Void, 3-D Secure v2).
+  - url: https://developer.cashflows.com/api_reference/ipp.html
+    type: APIReference
+    note: In-Person Payments local device API under /api/v2.
+  - url: https://developer.cashflows.com/gateway/cashflows_gateway.html
+    type: Documentation
+    note: Gateway guide; webhook notification mechanism and integration environment.
+  - url: https://status.cashflows.com/
+    type: StatusPage
+    note: Live status page.
+actions:
+  openapiHarvested: false
+  specsSaved: 0
+  reason: |
+    No downloadable or embedded OpenAPI/Swagger definition is published; the
+    reference is hand-authored HTML. Nothing was fabricated. The four
+    documented REST APIs are captured as apis[] entries pointing to their real
+    reference pages.
