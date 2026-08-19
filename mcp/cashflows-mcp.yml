@@ -2,39 +2,44 @@ generated: '2026-07-24'
 method: derived
 status: candidate
 source: https://developer.cashflows.com/api_reference/cashflows_gateway.html
-note: >-
-  No official Cashflows MCP server exists. This is a candidate tool surface
-  derived from the documented Gateway REST operations, provided as a design
-  starting point. Input schemas would follow the documented request fields.
+note: No official Cashflows MCP server exists. This is a candidate tool surface derived from the documented
+  Gateway REST operations, provided as a design starting point. Input schemas would follow the documented
+  request fields.
 server:
   name: cashflows-gateway
   transport: http
   url: null
 tools:
-  - name: create_payment_job
-    description: Create a new payment job to collect or credit an amount.
-    source_operation: POST /api/gateway/payment-jobs
-  - name: get_payment_job
-    description: Retrieve a payment job by reference.
-    source_operation: GET /api/gateway/payment-jobs/{paymentJobReference}
-  - name: cancel_payment_job
-    description: Cancel a payment job.
-    source_operation: PATCH /api/gateway/payment-jobs/{paymentJobReference}/cancel
-  - name: get_payment
-    description: Retrieve a payment within a payment job.
-    source_operation: GET /api/gateway/payment-jobs/{ref}/payments/{paymentRef}
-  - name: capture_payment
-    description: Capture a previously authorised payment.
-    source_operation: PATCH /api/gateway/payment-jobs/{ref}/payments/{paymentRef}/captures
-  - name: refund_payment
-    description: Refund a captured payment.
-    source_operation: PATCH /api/gateway/payment-jobs/{ref}/payments/{paymentRef}/refunds
-  - name: cancel_payment
-    description: Cancel an individual payment.
-    source_operation: PATCH /api/gateway/payment-jobs/{ref}/payments/{paymentRef}/cancel
-  - name: list_supported_payment_methods
-    description: List payment methods supported for the account.
-    source_operation: GET /api/gateway/supported-payment-methods
-  - name: tokenise_card
-    description: Create a reusable card token.
-    source_operation: POST /api/gateway/card-tokenisation
+- name: create_payment_job
+  description: Create a new payment job to collect or credit an amount.
+  source_operation: POST /api/gateway/payment-jobs
+- name: get_payment_job
+  description: Retrieve a payment job by reference.
+  source_operation: GET /api/gateway/payment-jobs/{paymentJobReference}
+- name: cancel_payment_job
+  description: Cancel a payment job.
+  source_operation: PATCH /api/gateway/payment-jobs/{paymentJobReference}/cancel
+- name: get_payment
+  description: Retrieve a payment within a payment job.
+  source_operation: GET /api/gateway/payment-jobs/{ref}/payments/{paymentRef}
+- name: capture_payment
+  description: Capture a previously authorised payment.
+  source_operation: PATCH /api/gateway/payment-jobs/{ref}/payments/{paymentRef}/captures
+- name: refund_payment
+  description: Refund a captured payment.
+  source_operation: PATCH /api/gateway/payment-jobs/{ref}/payments/{paymentRef}/refunds
+- name: cancel_payment
+  description: Cancel an individual payment.
+  source_operation: PATCH /api/gateway/payment-jobs/{ref}/payments/{paymentRef}/cancel
+- name: list_supported_payment_methods
+  description: List payment methods supported for the account.
+  source_operation: GET /api/gateway/supported-payment-methods
+- name: tokenise_card
+  description: Create a reusable card token.
+  source_operation: POST /api/gateway/card-tokenisation
+deployment:
+  mode: none
+  verified: derived
+  tools: 9
+  checked: '2026-08-12'
+  source: catalog MCP census
