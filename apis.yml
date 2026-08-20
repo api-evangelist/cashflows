@@ -26,6 +26,17 @@ tags:
 - Acquiring
 - Card Payments
 - In-Person Payments
+- 3D Secure
+- Recurring Payments
+- Webhook
+tags_raw:
+- Payments
+- United Kingdom
+- Payment Gateway
+- Payment Processing
+- Acquiring
+- Card Payments
+- In-Person Payments
 - 3-D Secure
 - Recurring Payments
 - Webhooks
@@ -45,6 +56,11 @@ apis:
   tags:
   - Payments
   - Gateway
+  - Webhook
+  - Recurring Payments
+  tags_raw:
+  - Payments
+  - Gateway
   - Webhooks
   - Recurring Payments
   properties:
@@ -59,6 +75,10 @@ apis:
     lookup, and 3-D Secure version 2 authentication and verification flows.
   humanURL: https://developer.cashflows.com/api_reference/payments.html
   tags:
+  - Payments
+  - 3D Secure
+  - Card Payments
+  tags_raw:
   - Payments
   - 3-D Secure
   - Card Payments
