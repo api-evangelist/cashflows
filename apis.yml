@@ -80,7 +80,7 @@ apis:
   baseURL: https://gateway.cashflows.com/api/gateway
   tags:
   - Payments
-  - Gateway
+  - Gateways
   - Webhook
   - Recurring Payments
   tags_raw:
