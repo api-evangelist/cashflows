@@ -69,7 +69,7 @@ tags_raw:
 - Recurring Payments
 - Webhooks
 created: '2026-07-24'
-modified: '2026-07-24T12:00:00Z'
+modified: '2026-10-06'
 specificationVersion: '0.23'
 apis:
 - aid: cashflows:cashflows-gateway-api
@@ -145,6 +145,8 @@ apis:
   - type: APIReference
     url: https://developer.cashflows.com/api_reference/ipp.html
 common:
+- url: https://www.cashflows.com/blog/rss.xml
+  type: BlogRSS
 - type: DomainSecurity
   url: security/cashflows-domain-security.yml
 - type: Website
