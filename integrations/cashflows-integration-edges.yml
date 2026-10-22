@@ -29,16 +29,89 @@ edges:
     detected: '2026-10-18'
   detected_by: sweep-official-sdks.py
   first_seen: '2026-10-18'
+- partner_name: EBA Payment Institutions Register (PSD2 / EMD2)
+  partner: null
+  partner_match: register-name
+  type: register
+  channel: regulator-register
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://euclid.eba.europa.eu/register/pir/search
+  category: EU/EEA PSD2 payment / e-money authorisation
+  contract_reference:
+    register: EBA Payment Institutions Register (PSD2 / EMD2)
+    spec_file: null
+    standard: null
+    role: authorised-payment-or-e-money-institution
+    registrations:
+    - registered_name: PayCheckout B.V.
+      licences:
+      - payment institution
+      register_country: NL
+      register_id: NL_DNB!R128787
+      matched_domain: null
+      matched_by: register-name
+      authorised: '2020-02-09'
+      competent_authority: NL_DNB
+      commercial_name: CashFlows
+      national_ref: R128787
+      home_services:
+      - PS_03A
+      - PS_03B
+      - PS_03C
+      - PS_05A
+      - PS_05B
+      passports:
+      - AT
+      - BE
+      - BG
+      - CY
+      - CZ
+      - DE
+      - DK
+      - EE
+      - ES
+      - FI
+      - FR
+      - GR
+      - HR
+      - HU
+      - IE
+      - IS
+      - IT
+      - LI
+      - LT
+      - LU
+      - LV
+      - MT
+      - 'NO'
+      - PL
+      - PT
+      - RO
+      - SE
+      - SI
+      - SK
+      register_name_note: register-name 'cashflows' = cashflows; no wikidata P856
+    matched_by: register-name
+    signal_note: 'participation only: a regulator authorisation / registration and its PSD2 passports (host countries);
+      no API conformance is published by this register'
+    detected_by: sweep-eu-psd2-payment-institutions.py
+    detected: '2026-10-21'
+    identity_source: register-name
+    identity_note: register gave only the name; exact normalised match to the repo's apis.yml name, one repo, Wikidata
+      P856 not contradicting (Kin 2026-10-20 decision 2)
+  detected_by: sweep-eu-psd2-payment-institutions.py
+  first_seen: '2026-10-21'
 generated: '2026-10-18'
 method: searched
 source:
-- https://api.nuget.org/v3
-- https://crates.io/api/v1
-- https://proxy.golang.org
-- https://pypi.org/pypi
 - https://registry.npmjs.org
-- https://repo1.maven.org/maven2
+- https://pypi.org/pypi
 - https://rubygems.org/api/v1
+- https://crates.io/api/v1
+- https://repo1.maven.org/maven2
+- https://api.nuget.org/v3
+- https://proxy.golang.org
 checked:
 - https://api.nuget.org/v3
 - https://crates.io/api/v1
@@ -47,3 +120,6 @@ checked:
 - https://registry.npmjs.org
 - https://repo1.maven.org/maven2
 - https://rubygems.org/api/v1
+- https://euclid.eba.europa.eu/register/api/filemetadata
+- https://euclid.eba.europa.eu/register/cir/search
+- https://euclid.eba.europa.eu/register/pir/search
