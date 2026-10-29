@@ -1,4 +1,4 @@
-# Cashflows (cashflows)
+# Cashflows
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,90 +64,111 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Cashflows is a United Kingdom payment gateway and card acquirer, headquartered in London and a principal member of Visa and Mastercard, that helps businesses accept, process, and manage card payments across online, in-app, and in-person channels. It ships a genuine self-serve developer portal at [developer.cashflows.com](https://developer.cashflows.com/) with reference documentation, a dedicated integration/sandbox environment, and webhook-based payment notifications. Its API reference is hand-authored HTML — there is no downloadable OpenAPI/Swagger definition or public Postman collection. Authentication is header-based (ConfigurationId plus a SHA-512 request hash for the Gateway; auth_id/auth_pass for Remote Authentication).
+Cashflows is a United Kingdom payment gateway and card acquirer, headquartered in London and a principal member of Visa and Mastercard, that helps businesses accept, process, and manage card payments across online, in-app, and in-person channels. Its product family spans a REST Cashflows Gateway (payment jobs, captures, refunds, tokenisation, recurring payments, and webhooks), hosted and embedded checkout, a cardholder-not-present Payments API with 3-D Secure, a Remote Authentication API for connecting to the acquiring network, and an In-Person Payments API served locally from Kinetic PCI-PTS terminals. Cashflows ships a genuine self-serve developer portal at developer.cashflows.com with reference documentation, a dedicated integration/sandbox environment, and webhook-based payment notifications, but it does not publish a downloadable OpenAPI/Swagger definition or a public Postman collection; its API reference is hand-authored HTML. Authentication is header-based (ConfigurationId plus a SHA-512 request hash for the Gateway, and auth_id/auth_pass for Remote Authentication) rather than OAuth.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/cashflows/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/cashflows/refs/heads/main/apis.yml)
+**Areas:** Payments · United Kingdom · Payment Gateway · Payment Processing · Acquiring · Card Payments · In-Person Payments · 3D Secure · Recurring Payments · Webhook
 
-## Tags
+## Cashflows on APIs.io
 
-- Payments
-- United Kingdom
-- Payment Gateway
-- Payment Processing
-- Acquiring
-- Card Payments
-- In-Person Payments
-- 3-D Secure
-- Recurring Payments
-- Webhooks
+Everything profiled for Cashflows is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/cashflows/](https://apis.io/providers/cashflows/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (4)
 
-- **Created:** 2026-07-24
-- **Modified:** 2026-07-24
+- [Cashflows Gateway API](https://apis.io/apis/cashflows/cashflows-gateway-api/) — REST API for creating and managing payment jobs and payments — create, retrieve, and cancel payment jobs; capture, refund, and cancel individual payments;…
+- [Cashflows Payments API](https://apis.io/apis/cashflows/cashflows-payments-api/) — REST/JSON API for cardholder-not-present card payments with 3-D Secure support — authorisation, capture, void, refund, credit, IIN lookup, and 3-D Secure…
+- [Cashflows Remote Authentication API](https://apis.io/apis/cashflows/cashflows-remote-authentication-api/) — API for connecting directly to the Cashflows acquiring network to authorise card transactions, authenticated with auth_id (Profile/Merchant ID) and…
+- [Cashflows In-Person Payments API](https://apis.io/apis/cashflows/cashflows-in-person-payments-api/) — Standalone REST API for PCI-PTS secure Kinetic payment devices, served locally from the terminal (default http://127.0.0.1:8080) under /api/v2 — device…
 
-## APIs
+### Published properties
 
-### Cashflows Gateway API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-REST API for creating and managing payment jobs and payments — create, retrieve, and cancel payment jobs; capture, refund, and cancel individual payments; card tokenisation; and recurring payments. Payment status changes are delivered asynchronously via webhook notifications (retried for up to a month).
+#### AsyncAPI (1)
 
-- **Human URL:** [https://developer.cashflows.com/api_reference/cashflows_gateway.html](https://developer.cashflows.com/api_reference/cashflows_gateway.html)
-- **Base URL:** `https://gateway.cashflows.com/api/gateway`
+Event-driven and webhook contracts.
 
-#### Properties
+- [Cashflows Gateway Webhooks](https://apis.io/asyncapis/cashflows/cashflows-gateway-webhooks/)
 
-- [Documentation](https://developer.cashflows.com/gateway/cashflows_gateway.html)
-- [API Reference](https://developer.cashflows.com/api_reference/cashflows_gateway.html)
+#### MCP servers (1)
 
-### Cashflows Payments API
+Model Context Protocol servers that expose the API to agents.
 
-REST/JSON API for cardholder-not-present card payments with 3-D Secure support — authorisation, capture, void, refund, credit, IIN lookup, and 3-D Secure version 2 authentication and verification flows.
+- [cashflows-gateway](https://apis.io/servers/cashflows/cashflows-gateway/)
 
-- **Human URL:** [https://developer.cashflows.com/api_reference/payments.html](https://developer.cashflows.com/api_reference/payments.html)
+#### Security (2)
 
-#### Properties
+Authentication, trust centre, and vulnerability disclosure.
 
-- [Documentation](https://developer.cashflows.com/onlinepayments)
-- [API Reference](https://developer.cashflows.com/api_reference/payments.html)
+- [Cashflows Authentication](https://apis.io/security/cashflows/cashflows-authentication/)
+- [Cashflows Domain Security](https://apis.io/security/cashflows/cashflows-domain-security/)
 
-### Cashflows Remote Authentication API
+## Where to find this API
 
-API for connecting directly to the Cashflows acquiring network to authorise card transactions, authenticated with auth_id and auth_pass credential headers.
-
-- **Human URL:** [https://developer.cashflows.com/api_reference/remote_auth_api.html](https://developer.cashflows.com/api_reference/remote_auth_api.html)
-- **Base URL:** `https://secure.cashflows.com/gateway/remote_auth`
-
-#### Properties
-
-- [API Reference](https://developer.cashflows.com/api_reference/remote_auth_api.html)
-
-### Cashflows In-Person Payments API
-
-Standalone REST API for PCI-PTS secure Kinetic payment devices, served locally from the terminal (default `http://127.0.0.1:8080`) under `/api/v2` — device info, ping/status, settings, transactions, screens, receipts, and printing.
-
-- **Human URL:** [https://developer.cashflows.com/api_reference/ipp.html](https://developer.cashflows.com/api_reference/ipp.html)
-- **Base URL:** `http://127.0.0.1:8080/api/v2`
-
-#### Properties
-
-- [API Reference](https://developer.cashflows.com/api_reference/ipp.html)
-
-## Common Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.cashflows.com/)
-- [Developer Portal](https://developer.cashflows.com/)
 - [Documentation](https://developer.cashflows.com/)
-- [API Reference](https://developer.cashflows.com/api_reference/api_reference_overview.html)
-- [Getting Started](https://developer.cashflows.com/getting_started/getting_started.html)
-- [Status Page](https://status.cashflows.com/)
+- [Getting started](https://developer.cashflows.com/getting_started/getting_started.html)
+- [API reference](https://developer.cashflows.com/api_reference/api_reference_overview.html)
 - [Pricing](https://www.cashflows.com/pricing)
-- [Blog](https://www.cashflows.com/blog)
 - [Support](https://www.cashflows.com/contact/support)
-- [Terms of Service](https://www.cashflows.com/legal/terms-and-conditions)
-- [Privacy Policy](https://www.cashflows.com/legal/privacy-policy)
+- [Blog](https://www.cashflows.com/blog)
+- [Terms of service](https://www.cashflows.com/legal/terms-and-conditions)
+- [Privacy policy](https://www.cashflows.com/legal/privacy-policy)
+- [GitHub](https://github.com/cashflows)
+- [Status](https://status.cashflows.com/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 46.5** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 69.6 |
+| Contract quality | 39.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 26.3 |
+| Developer ergonomics | 71.4 |
+| Access clarity | 38.2 |
+
+**Agent readiness 22.7** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | yes |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 34.8** — Payments
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/cashflows/](https://apis.io/providers/cashflows/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Cashflows: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/cashflows/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
